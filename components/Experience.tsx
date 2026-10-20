@@ -101,6 +101,9 @@ export function Experience() {
         <div className="mt-6 flex flex-col gap-6 rounded-3xl bg-surface p-6 sm:p-8 lg:flex-row lg:items-center">
           <div className="lg:w-64 lg:shrink-0">
             <p className="eyebrow !text-[0.7rem] text-business">Pendant mes études</p>
+            <p className="mt-1 text-sm font-bold text-muted tabular-nums">
+              {studentJobs[studentJobs.length - 1].year} — {studentJobs[0].year}
+            </p>
             <p className="mt-2 leading-snug text-slate">Jobs étudiants et stages en banque et en assurance.</p>
           </div>
           <ul className="grid flex-1 grid-cols-2 gap-3 sm:grid-cols-4">
@@ -111,14 +114,20 @@ export function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 + i * 0.07, duration: 0.5 }}
-                className="flex h-full flex-col justify-between gap-4 rounded-2xl bg-white p-4"
+                className="flex h-full flex-col gap-4 rounded-2xl bg-white p-4"
               >
-                <div className="flex h-10 items-center">
-                  <CompanyLogo company={j.company} height={40} />
+                <div className="flex h-10 items-start justify-between gap-2">
+                  <span className="flex h-10 items-center">
+                    <CompanyLogo company={j.company} height={36} />
+                  </span>
+                  <span className="rounded-full bg-surface px-2 py-0.5 text-xs font-bold text-slate tabular-nums">
+                    {j.year}
+                  </span>
                 </div>
-                <div>
-                  <p className="leading-tight font-bold text-ink">{j.company}</p>
-                  <p className={`text-sm ${j.sector === "Assurance" ? "text-tech" : "text-business"}`}>
+                <div className="flex flex-1 flex-col">
+                  <p className="min-h-[2.5em] leading-tight font-bold text-ink">{j.company}</p>
+                  {j.role && <p className="mt-1 text-sm leading-snug text-slate">{j.role}</p>}
+                  <p className={`mt-auto pt-1 text-sm ${j.sector === "Assurance" ? "text-tech" : "text-business"}`}>
                     {j.sector}
                     {j.note && <span className="text-muted"> · {j.note}</span>}
                   </p>
