@@ -43,7 +43,11 @@ export function Contact() {
           <p>
             © {new Date().getFullYear()} {profile.firstName} {profile.lastName} · {profile.location}
           </p>
-          <p>Conçu avec Claude Code · Next.js · Vercel</p>
+          <p>
+            Conçu avec Claude Code
+            <span aria-hidden className="ml-1 inline-block h-[0.95em] w-[0.45em] translate-y-[0.15em] animate-blink bg-white/60" />
+            {" "}· Next.js · Vercel
+          </p>
         </div>
       </div>
     </footer>
