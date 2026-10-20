@@ -15,11 +15,12 @@ export const profile = {
 
 export type Tone = "business" | "tech";
 
-export const stats: { value: number | null; prefix?: string; suffix?: string; label: string; detail: string; tone: Tone }[] = [
-  { value: 26, suffix: "", label: "commerciaux", detail: "+ 3 managers et 1 directeur commercial accompagnés", tone: "business" },
+// Même structure pour chaque carte : `value` (nombre animé) ou `word` en grand, puis libellé et détail.
+export const stats: { value?: number; word?: string; label: string; detail: string; tone: Tone }[] = [
+  { value: 26, label: "commerciaux", detail: "+ 3 managers et 1 directeur commercial accompagnés", tone: "business" },
   { value: 5, label: "gammes IARD", detail: "sur 2 filiales, au service de 2 directeurs généraux", tone: "business" },
-  { value: null, label: "IA en production", detail: "agents IA au service du pilotage commercial", tone: "tech" },
-  { value: null, label: "Seul", detail: "sur toute la chaîne data, de Snowflake à l'IA", tone: "tech" },
+  { word: "IA", label: "en production", detail: "agents IA au service du pilotage commercial", tone: "tech" },
+  { word: "Seul", label: "sur toute la chaîne data", detail: "de Snowflake jusqu'aux agents IA", tone: "tech" },
 ];
 
 // La chaîne data opérée de bout en bout.
@@ -30,6 +31,34 @@ export const pipeline: { step: string; tools: string; output: string; tone: Tone
   { step: "Intelligence", tools: "Snowflake Cortex · LLM", output: "Agents IA : la performance en langage naturel, un rapport quotidien généré", tone: "tech" },
   { step: "Restitution", tools: "QlikSense · Streamlit · Mapbox", output: "Dashboards et cartographie interactive de la production", tone: "business" },
   { step: "Décision", tools: "Business Review", output: "Ce qui progresse, ce qui recule, et pourquoi, pour la direction commerciale", tone: "business" },
+];
+
+// Logos officiels (public/logos/), récupérés sur les sites des entreprises.
+// `ratio` = largeur / hauteur du SVG. Sans logo, une pastille aux initiales s'affiche.
+export const companies: Record<string, { initials: string; logo?: string; ratio?: number }> = {
+  APRIL: { initials: "A", logo: "/logos/april.svg", ratio: 140 / 33 },
+  "Crédit Agricole d'Ille-et-Vilaine": {
+    initials: "CA",
+    logo: "/logos/credit-agricole-ille-et-vilaine.svg",
+    ratio: 134 / 72,
+  },
+  "FASTEA Capital": { initials: "F", logo: "/logos/fastea-capital.svg", ratio: 277 / 87 },
+  // Banque de Bretagne, absorbée par BNP Paribas en 2011 : logo du groupe
+  "Banque de Bretagne": { initials: "BB", logo: "/logos/bnp-paribas.svg", ratio: 219.1 / 45.4 },
+  "BNP Paribas": { initials: "BNP", logo: "/logos/bnp-paribas.svg", ratio: 219.1 / 45.4 },
+  // Banque Populaire de l'Ouest, fusionnée en 2017 dans la BPGO : emblème Banque Populaire
+  "Banque Populaire de l'Ouest": { initials: "BP", logo: "/logos/banque-populaire.png", ratio: 234 / 232 },
+  Groupama: { initials: "G", logo: "/logos/groupama.svg", ratio: 185 / 64 },
+  // Rennes 1 est devenue l'Université de Rennes en 2023 : logo actuel
+  "Université de Rennes 1": { initials: "UR", logo: "/logos/universite-rennes.svg", ratio: 927 / 296 },
+};
+
+// Jobs étudiants et stages pendant les études
+export const studentJobs: { company: string; sector: string; note?: string }[] = [
+  { company: "Banque de Bretagne", sector: "Banque", note: "groupe BNP Paribas" },
+  { company: "BNP Paribas", sector: "Banque" },
+  { company: "Banque Populaire de l'Ouest", sector: "Banque" },
+  { company: "Groupama", sector: "Assurance" },
 ];
 
 export type Experience = {
@@ -86,7 +115,11 @@ export const experiences: Experience[] = [
     place: "Marché du patrimoine",
     period: "Juin 2016 — Mai 2017",
     bullets: [
-      "Pilotage de l'activité des banquiers privés (assurance-vie, titres, financements) : dashboards, études marketing, automatisation du service",
+      "Pilotage de l'activité des banquiers privés du marché du patrimoine : assurance-vie, titres et financements",
+      "Dashboards de suivi de l'activité commerciale, pour les banquiers et leur encadrement",
+      "Études marketing pour orienter les actions auprès de la clientèle patrimoniale",
+      "Automatisation des tâches récurrentes du service, pour redonner du temps aux équipes",
+      "Premier poste au contact direct du commercial : la data au service de la performance, déjà",
     ],
   },
   {
@@ -95,7 +128,11 @@ export const experiences: Experience[] = [
     place: "Société de gestion · Nantes",
     period: "Avr. 2015 — Mars 2016",
     bullets: [
-      "Système d'information Risk / Middle office (Python, VBA, SQL), indicateurs de risque (VaR), valorisation automatisée de 2 OPCVM",
+      "Construction du système d'information Risk / Middle office d'une société de gestion",
+      "Développements Python, VBA et SQL pour fiabiliser et automatiser les flux de données du middle office",
+      "Calcul et suivi des indicateurs de risque des portefeuilles, dont la VaR",
+      "Valorisation automatisée de 2 OPCVM, en remplacement de traitements manuels",
+      "Première mise en pratique de la finance quantitative du Master, côté outils et données",
     ],
   },
 ];
@@ -142,7 +179,45 @@ export const sideProject = {
   tools: ["Next.js", "TypeScript", "Tailwind", "Convex", "Clerk", "Vercel"],
 };
 
-export const education = [
-  { degree: "Master 2 Ingénierie Économique et Financière", school: "Université de Rennes 1 · finance quantitative", year: "2015" },
-  { degree: "Licence Économie-Gestion", school: "Université de Rennes 1", year: "2012" },
+export const school = {
+  name: "Université de Rennes 1",
+  faculty: "Faculté des Sciences Économiques",
+  today: "aujourd'hui Université de Rennes",
+};
+
+export const education: { degree: string; period: string; focus?: string; details?: string[] }[] = [
+  {
+    degree: "Master 2 Ingénierie Économique et Financière",
+    period: "2014 — 2015",
+    focus: "Parcours Finance quantitative et gestion d'actifs",
+    details: [
+      "Mémoire : optimisation du risque et de la performance en gestion collective et privée",
+      "Trésorier adjoint du master",
+    ],
+  },
+  {
+    degree: "Master 1 Banque / Finance · Ingénierie économique et financière",
+    period: "2013 — 2014",
+    focus: "Finance quantitative et gestion d'actifs",
+  },
+  { degree: "Licence Économie-Gestion", period: "2012" },
+];
+
+// Matières clés du master, regroupées par famille
+export const coursework: { group: string; tone: Tone | "ink"; items: string[] }[] = [
+  {
+    group: "Data & programmation",
+    tone: "tech",
+    items: ["C++", "C#", "SQL", "R", "SAS", "VBA", "Datamining & machine learning", "Économétrie", "Prévisions ARCH / GARCH", "Mathématiques"],
+  },
+  {
+    group: "Finance quantitative",
+    tone: "business",
+    items: ["Modélisation financière", "Évaluation d'actifs (Black-Scholes)", "Gestion d'actifs avancée", "Options, futures & swaps", "Stratégies de couverture"],
+  },
+  {
+    group: "Économie & marchés",
+    tone: "ink",
+    items: ["Marchés financiers", "Matières premières", "Finance d'entreprise", "Finance internationale", "Politique monétaire et financière"],
+  },
 ];
