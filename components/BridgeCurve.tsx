@@ -102,24 +102,23 @@ export function BridgeCurve() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
-        fontSize="13"
         fontWeight="700"
-        letterSpacing="2.6"
+        className="text-[22px] tracking-[0.18em] sm:text-[13px] sm:tracking-[0.2em]"
       >
-        <text x="6" y="54" fill="#6a4fc2">BUSINESS</text>
-        <text x="6" y="410" fill="#1e8c6e">TECH</text>
-        <text x="296" y="276" fill="#151b23">LE PONT</text>
+        <text x="6" y="50" fill="#6a4fc2">BUSINESS</text>
+        <text x="6" y="416" fill="#1e8c6e">TECH</text>
+        <text x="330" y="284" textAnchor="middle" fill="#151b23">LE PONT</text>
       </motion.g>
       <motion.text
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3.4 }}
-        x="548"
-        y="56"
+        x="640"
+        y="52"
+        textAnchor="end"
         fill="#1e8c6e"
-        fontSize="13"
         fontWeight="700"
-        letterSpacing="2.6"
+        className="text-[22px] tracking-[0.18em] sm:text-[13px] sm:tracking-[0.2em]"
       >
         DÉCISION
       </motion.text>

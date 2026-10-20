@@ -25,7 +25,9 @@ export function Hero() {
             transition={{ duration: 0.7, ease }}
             className="eyebrow mb-6 text-business"
           >
-            {profile.firstName} {profile.lastName} · {profile.role}
+            {profile.firstName} {profile.lastName}
+            <span className="hidden sm:inline"> · {profile.role}</span>
+            <span className="sm:hidden"> · Performance commerciale IARD</span>
           </motion.p>
 
           <h1 className="sr-only">

@@ -3,16 +3,9 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import {
-  certification,
-  education,
-  interests,
-  languages,
-  profile,
-  sideProject,
-  strengths,
-} from "@/lib/content";
+import { certification, interests, languages, profile, sideProject, strengths } from "@/lib/content";
 import { Reveal, WordReveal } from "./Reveal";
+import { Education } from "./Education";
 
 export function Profile() {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,7 +16,7 @@ export function Profile() {
   return (
     <section id="profil" className="mx-auto max-w-7xl px-4 py-24 sm:px-8 sm:py-32">
       <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-        <div ref={ref} className="relative mx-auto w-full max-w-sm">
+        <div ref={ref} className="relative mx-auto w-full max-w-[260px] sm:max-w-sm">
           <motion.div style={{ y, rotate }} className="relative">
             <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-business to-tech opacity-90" />
             <Image
@@ -64,7 +57,7 @@ export function Profile() {
           </Reveal>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            <Reveal>
+            <Reveal className="sm:col-span-2">
               <Card title="Projets personnels" tone="tech">
                 <p className="font-bold text-ink">{sideProject.title}</p>
                 <p className="mt-1 text-slate">{sideProject.text}</p>
@@ -72,20 +65,6 @@ export function Profile() {
               </Card>
             </Reveal>
             <Reveal delay={0.06}>
-              <Card title="Formation" tone="business">
-                <ul className="space-y-3">
-                  {education.map((e) => (
-                    <li key={e.degree}>
-                      <p className="font-bold leading-snug text-ink">
-                        {e.degree} <span className="font-normal text-muted">· {e.year}</span>
-                      </p>
-                      <p className="text-sm text-slate">{e.school}</p>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </Reveal>
-            <Reveal delay={0.12}>
               <Card title="Langues & certification" tone="ink">
                 <p className="text-slate">{languages.join(" · ")}</p>
                 <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-tech-soft px-3 py-1 text-sm font-bold text-tech">
@@ -93,7 +72,7 @@ export function Profile() {
                 </p>
               </Card>
             </Reveal>
-            <Reveal delay={0.18}>
+            <Reveal delay={0.12}>
               <Card title="Centres d'intérêt" tone="ink">
                 <p className="text-slate">{interests.join(" · ")}</p>
               </Card>
@@ -101,6 +80,8 @@ export function Profile() {
           </div>
         </div>
       </div>
+
+      <Education />
     </section>
   );
 }
