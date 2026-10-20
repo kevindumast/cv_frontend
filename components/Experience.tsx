@@ -124,9 +124,10 @@ export function Experience() {
                     {j.year}
                   </span>
                 </div>
-                <div>
+                <div className="flex flex-1 flex-col">
                   <p className="min-h-[2.5em] leading-tight font-bold text-ink">{j.company}</p>
-                  <p className={`text-sm ${j.sector === "Assurance" ? "text-tech" : "text-business"}`}>
+                  {j.role && <p className="mt-1 text-sm leading-snug text-slate">{j.role}</p>}
+                  <p className={`mt-auto pt-1 text-sm ${j.sector === "Assurance" ? "text-tech" : "text-business"}`}>
                     {j.sector}
                     {j.note && <span className="text-muted"> · {j.note}</span>}
                   </p>

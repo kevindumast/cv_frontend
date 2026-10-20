@@ -48,14 +48,14 @@ export const companies: Record<string, { initials: string; logo?: string; ratio?
   "BNP Paribas": { initials: "BNP", logo: "/logos/bnp-paribas.svg", ratio: 219.1 / 45.4 },
   // Banque Populaire de l'Ouest, fusionnée en 2017 dans la BPGO : emblème Banque Populaire
   "Banque Populaire de l'Ouest": { initials: "BP", logo: "/logos/banque-populaire.png", ratio: 234 / 232 },
-  Groupama: { initials: "G", logo: "/logos/groupama.svg", ratio: 159 / 40 },
+  Groupama: { initials: "G", logo: "/logos/groupama.svg", ratio: 155.1 / 36.1 },
   // Rennes 1 est devenue l'Université de Rennes en 2023 : logo actuel
   "Université de Rennes 1": { initials: "UR", logo: "/logos/universite-rennes.svg", ratio: 927 / 296 },
 };
 
 // Jobs étudiants et stages pendant les études, du plus récent au plus ancien
-export const studentJobs: { company: string; sector: string; year: string; note?: string }[] = [
-  { company: "Banque Populaire de l'Ouest", sector: "Banque", year: "2013" },
+export const studentJobs: { company: string; role?: string; sector: string; year: string; note?: string }[] = [
+  { company: "Banque Populaire de l'Ouest", role: "Analyste crédit", sector: "Banque", year: "2013" },
   { company: "Banque de Bretagne", sector: "Banque", year: "2012", note: "groupe BNP Paribas" },
   { company: "BNP Paribas", sector: "Banque", year: "2011" },
   { company: "Groupama", sector: "Assurance", year: "2010" },
