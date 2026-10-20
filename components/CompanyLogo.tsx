@@ -2,6 +2,7 @@ import Image from "next/image";
 import { companies } from "@/lib/content";
 
 // Logo à hauteur fixe, largeur selon ses proportions (bornée pour les logos très larges).
+// Il se réduit si son conteneur est plus étroit (max-width: 100 %).
 export function CompanyLogo({ company, height = 32 }: { company: string; height?: number }) {
   const c = companies[company];
 
@@ -15,8 +16,8 @@ export function CompanyLogo({ company, height = 32 }: { company: string; height?
         width={width}
         height={h}
         unoptimized
-        className="shrink-0 object-contain"
-        style={{ width, height: h }}
+        className="min-w-0 object-contain object-left"
+        style={{ width, height: h, maxWidth: "100%" }}
       />
     );
   }

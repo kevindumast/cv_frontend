@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { profile } from "@/lib/content";
 
 const links = [
+  { href: "#kpis", label: "KPIs" },
   { href: "#chaine", label: "Chaîne data" },
   { href: "#parcours", label: "Parcours" },
   { href: "#competences", label: "Compétences" },

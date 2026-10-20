@@ -23,6 +23,40 @@ export const stats: { value?: number; word?: string; label: string; detail: stri
   { word: "Seul", label: "sur toute la chaîne data", detail: "de Snowflake jusqu'aux agents IA", tone: "tech" },
 ];
 
+// KPIs pilotés au quotidien, du potentiel au portefeuille.
+// `hint` uniquement pour les définitions validées.
+export const kpiStages: { stage: string; caption: string; kpis: { k: string; hint?: string }[] }[] = [
+  {
+    stage: "Potentiel",
+    caption: "Identifier où se trouve la croissance",
+    kpis: [{ k: "Potentiel additionnel" }, { k: "Qualification du potentiel" }],
+  },
+  {
+    stage: "Animation du réseau",
+    caption: "Mobiliser les bons courtiers",
+    kpis: [{ k: "Taux d'animation / objectif" }, { k: "Volume de devis" }, { k: "Efficience commerciale" }],
+  },
+  {
+    stage: "Conversion",
+    caption: "Transformer l'activité en affaires",
+    kpis: [
+      { k: "Taux d'engagement", hint: "courtiers ciblés effectivement suivis" },
+      { k: "Transformation du potentiel" },
+      { k: "Taux de transformation" },
+    ],
+  },
+  {
+    stage: "Résultats",
+    caption: "Mesurer ce qui a été produit",
+    kpis: [{ k: "Production nouvelle" }, { k: "CA" }, { k: "Prime moyenne" }, { k: "Taux d'atteinte objectif" }],
+  },
+  {
+    stage: "Portefeuille",
+    caption: "Garder et rentabiliser",
+    kpis: [{ k: "Rétention" }, { k: "Taux de chute" }, { k: "Rentabilité" }],
+  },
+];
+
 // La chaîne data opérée de bout en bout.
 export const pipeline: { step: string; tools: string; output: string; tone: Tone }[] = [
   { step: "Ingestion & entrepôt", tools: "Snowflake", output: "Toute la donnée commerciale IARD, conçue et administrée seul", tone: "tech" },

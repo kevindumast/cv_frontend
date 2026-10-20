@@ -296,7 +296,7 @@ function TerminalPanel({ active, reduce }: { active: boolean; reduce: boolean })
           <span className="ml-2 text-[11px] text-white/40">claude · pilotage-data</span>
         </div>
 
-        <div className="min-h-[360px] space-y-1 px-4 py-4 break-words whitespace-pre-wrap">
+        <div className="min-h-[360px] space-y-1 px-4 py-4 whitespace-pre-wrap [overflow-wrap:anywhere]">
           <p className="pl-[2ch] -indent-[2ch]">
             <span className="text-[#b8a6f0]">&gt; </span>
             <span className="text-white">{prompt}</span>
