@@ -21,7 +21,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "0px 0px -80px 0px" }}
       transition={{ duration: 0.8, delay, ease }}
     >
       {children}
@@ -48,7 +48,7 @@ export function WordReveal({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, margin: "0px 0px -60px 0px" }}
       transition={{ staggerChildren: 0.06, delayChildren: delay }}
     >
       {words.map((w, i) => {
@@ -77,7 +77,7 @@ export function WordReveal({
 
 export function CountUp({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -60px 0px" });
   const reduce = useReducedMotion();
   const [val, setVal] = useState(0);
   useEffect(() => {
