@@ -42,7 +42,7 @@ function useTyping(text: string, start: boolean, speed: number, run = 0) {
 
 export function AgentDemo() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { margin: "-120px" });
+  const inView = useInView(ref, { margin: "0px 0px -120px 0px" });
   const reduce = useReducedMotion();
   const [cycle, setCycle] = useState(0);
   const [phase, setPhase] = useState(0); // 0 question, 1 réflexion, 2 réponse
