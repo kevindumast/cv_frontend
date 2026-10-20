@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Palette et typographie reprises du CV */
+@theme {
+  --color-ink: #151b23;
+  --color-slate: #3a4350;
+  --color-muted: #6b7380;
+  --color-faint: #8a96a3;
+  --color-surface: #f3f5f7;
+  --color-line: #eef1f4;
+  --color-business: #6a4fc2;
+  --color-business-soft: #efebfa;
+  --color-tech: #1e8c6e;
+  --color-tech-soft: #e8f5f0;
+
+  --font-sans: Calibri, var(--font-carlito), "Segoe UI", Arial, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.25); }
+  }
+}
+
+html {
+  background: #ffffff;
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  background: #ffffff;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-business-soft);
+  color: var(--color-business);
+}
+
+/* Libellés de section, comme les intertitres du CV */
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.text-bridge {
+  background: linear-gradient(90deg, var(--color-business), var(--color-tech));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 70% 40%, black 20%, transparent 70%);
+}
+
+.mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
