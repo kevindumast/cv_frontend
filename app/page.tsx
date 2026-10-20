@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { Stats } from "@/components/Stats";
+import { Kpis } from "@/components/Kpis";
 import { Pipeline } from "@/components/Pipeline";
 import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Marquee />
         <Stats />
+        <Kpis />
         <Pipeline />
         <Experience />
         <Skills />

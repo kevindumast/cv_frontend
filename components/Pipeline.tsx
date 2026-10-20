@@ -14,7 +14,7 @@ export function Pipeline() {
   return (
     <section id="chaine" className="relative bg-surface py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.05fr]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
           <div>
             <Reveal>
               <p className="eyebrow mb-5 text-tech">La chaîne data</p>

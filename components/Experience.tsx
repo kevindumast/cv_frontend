@@ -117,10 +117,10 @@ export function Experience() {
                 className="flex h-full flex-col gap-4 rounded-2xl bg-white p-4"
               >
                 <div className="flex h-10 items-start justify-between gap-2">
-                  <span className="flex h-10 items-center">
+                  <span className="flex h-10 min-w-0 flex-1 items-center">
                     <CompanyLogo company={j.company} height={36} />
                   </span>
-                  <span className="rounded-full bg-surface px-2 py-0.5 text-xs font-bold text-slate tabular-nums">
+                  <span className="hidden shrink-0 rounded-full bg-surface px-2 py-0.5 text-xs font-bold text-slate tabular-nums sm:inline">
                     {j.year}
                   </span>
                 </div>
@@ -128,6 +128,7 @@ export function Experience() {
                   <p className="min-h-[2.5em] leading-tight font-bold text-ink">{j.company}</p>
                   {j.role && <p className="mt-1 text-sm leading-snug text-slate">{j.role}</p>}
                   <p className={`mt-auto pt-1 text-sm ${j.sector === "Assurance" ? "text-tech" : "text-business"}`}>
+                    <span className="font-bold tabular-nums sm:hidden">{j.year} · </span>
                     {j.sector}
                     {j.note && <span className="text-muted"> · {j.note}</span>}
                   </p>
