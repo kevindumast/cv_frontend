@@ -150,6 +150,7 @@ export const expertise = [
 
 export const stack: { group: string; items: string[] }[] = [
   { group: "Data", items: ["Snowflake", "dbt", "Dagster", "SQL avancé", "Snowpark", "PySpark"] },
+  { group: "Assistants IA au quotidien", items: ["Claude", "Claude Code", "Codex", "Gemini"] },
   { group: "IA & Data Science", items: ["Snowflake Cortex (agents IA)", "LLM & prompt engineering", "Machine learning (scikit-learn)", "NLP"] },
   { group: "Développement", items: ["Python", "TypeScript", "JavaScript", "Next.js", "Tailwind", "Streamlit", "Mapbox GL", "API REST", "VBA"] },
   { group: "DevOps & Cloud", items: ["Git", "GitLab CI/CD", "Docker", "Vercel", "OVH", "Azure", "AWS"] },
@@ -157,7 +158,7 @@ export const stack: { group: string; items: string[] }[] = [
 ];
 
 export const marquee = [
-  "Snowflake", "dbt", "Dagster", "Cortex", "Python", "SQL", "Snowpark", "PySpark", "scikit-learn", "NLP",
+  "Claude Code", "Snowflake", "dbt", "Dagster", "Cortex", "Python", "SQL", "Snowpark", "PySpark", "scikit-learn", "NLP",
   "TypeScript", "Next.js", "Tailwind", "Streamlit", "Mapbox GL", "GitLab CI/CD", "Docker", "Vercel", "QlikSense", "Salesforce",
 ];
 
