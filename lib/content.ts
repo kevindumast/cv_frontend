@@ -30,7 +30,7 @@ export const pipeline: { step: string; tools: string; output: string; tone: Tone
   { step: "Orchestration", tools: "Dagster · GitLab CI/CD", output: "Pipelines industrialisés, déployés en continu", tone: "tech" },
   { step: "Intelligence", tools: "Snowflake Cortex · LLM", output: "Agents IA : la performance en langage naturel, un rapport quotidien généré", tone: "tech" },
   { step: "Restitution", tools: "QlikSense · Streamlit · Mapbox", output: "Dashboards et cartographie interactive de la production", tone: "business" },
-  { step: "Décision", tools: "Business Review", output: "Ce qui progresse, ce qui recule, et pourquoi, pour la direction commerciale", tone: "business" },
+  { step: "Décision", tools: "Business Review · supports générés en Python", output: "Des présentations prêtes pour la direction commerciale : ce qui progresse, ce qui recule, et pourquoi", tone: "business" },
 ];
 
 // Logos officiels (public/logos/), récupérés sur les sites des entreprises.
@@ -92,6 +92,7 @@ export const experiences: Experience[] = [
       "Agents IA Snowflake Cortex : analyse de la performance en langage naturel et rapport quotidien généré par IA",
       "Moteur de segmentation algorithmique en Python / dbt, conçu et développé de A à Z",
       "Moteur de règles de ciblage des campagnes ; reportings automatisés qui font gagner des semaines de travail",
+      "Génération automatisée des supports de Business Review en Python : de la donnée au deck prêt pour la direction",
       "Dashboards QlikSense et application de cartographie interactive de la production (Streamlit, Mapbox)",
       "Industrialisation : orchestration Dagster, CI/CD GitLab, extensions Chrome métier",
     ],
@@ -141,7 +142,7 @@ export const expertise = [
   "Courtage d'assurance : pilotage et animation d'un réseau de courtiers",
   "Assurance IARD : Auto, Habitation, RC Décennale, 2-roues, Immobilier",
   "Campagnes commerciales : segmentation, ciblage, suivi",
-  "Pilotage : KPIs, objectifs saisonnalisés, Business Review",
+  "Pilotage : KPIs, objectifs saisonnalisés, Business Review, restitution aux directions",
   "Technique assurance : tarification, rétention, résultats techniques",
   "Finance : banque privée, gestion d'actifs, risque",
   "Gouvernance de données",
