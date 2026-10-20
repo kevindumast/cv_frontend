@@ -29,24 +29,20 @@ export const kpiStages: { stage: string; caption: string; kpis: { k: string; hin
   {
     stage: "Potentiel",
     caption: "Identifier où se trouve la croissance",
-    kpis: [{ k: "Potentiel additionnel" }, { k: "Qualification du potentiel" }, { k: "Transformation du potentiel" }],
+    kpis: [{ k: "Potentiel additionnel" }, { k: "Qualification du potentiel" }],
   },
   {
     stage: "Animation du réseau",
     caption: "Mobiliser les bons courtiers",
-    kpis: [
-      { k: "Taux d'engagement", hint: "courtiers ciblés effectivement suivis" },
-      { k: "Volume de devis" },
-      { k: "Efficience commerciale" },
-    ],
+    kpis: [{ k: "Taux d'animation / objectif" }, { k: "Volume de devis" }, { k: "Efficience commerciale" }],
   },
   {
     stage: "Conversion",
     caption: "Transformer l'activité en affaires",
     kpis: [
+      { k: "Taux d'engagement", hint: "courtiers ciblés effectivement suivis" },
+      { k: "Transformation du potentiel" },
       { k: "Taux de transformation" },
-      { k: "Taux de conversion" },
-      { k: "Taux de concrétisation", hint: "devis → contrats" },
     ],
   },
   {
