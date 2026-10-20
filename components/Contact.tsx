@@ -43,7 +43,7 @@ export function Contact() {
           <p>
             © {new Date().getFullYear()} {profile.firstName} {profile.lastName} · {profile.location}
           </p>
-          <p>Next.js · Motion · Vercel</p>
+          <p>Conçu avec Claude Code · Next.js · Vercel</p>
         </div>
       </div>
     </footer>
