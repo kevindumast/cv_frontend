@@ -56,9 +56,9 @@ export const companies: Record<string, { initials: string; logo?: string; ratio?
 // Jobs étudiants et stages pendant les études, du plus récent au plus ancien
 export const studentJobs: { company: string; role?: string; sector: string; year: string; note?: string }[] = [
   { company: "Banque Populaire de l'Ouest", role: "Analyste crédit", sector: "Banque", year: "2013" },
-  { company: "Banque de Bretagne", sector: "Banque", year: "2012", note: "groupe BNP Paribas" },
-  { company: "BNP Paribas", sector: "Banque", year: "2011" },
-  { company: "Groupama", sector: "Assurance", year: "2010" },
+  { company: "Banque de Bretagne", role: "Conseiller clientèle assistant", sector: "Banque", year: "2012", note: "groupe BNP Paribas" },
+  { company: "BNP Paribas", role: "Conseiller clientèle assistant", sector: "Banque", year: "2011" },
+  { company: "Groupama", role: "Stage", sector: "Assurance", year: "2010" },
 ];
 
 export type Experience = {
