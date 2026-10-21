@@ -115,7 +115,7 @@ export const experiences: Experience[] = [
   {
     title: "Responsable de la Performance Commerciale IARD",
     company: "APRIL",
-    place: "Réseau de courtage IARD · Rennes",
+    place: "Direction commerciale · Réseau de courtage IARD · Rennes",
     period: "Nov. 2024 — aujourd'hui",
     business: [
       "Pilotage de la performance du réseau de courtiers : 5 gammes IARD (Auto, Habitation, RC Décennale, 2-roues, Immobilier) sur 2 filiales",
