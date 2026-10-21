@@ -53,7 +53,13 @@ export const kpiStages: { stage: string; caption: string; kpis: { k: string; hin
   {
     stage: "Portefeuille",
     caption: "Garder et rentabiliser",
-    kpis: [{ k: "Rétention" }, { k: "Taux de chute" }, { k: "Rentabilité" }],
+    kpis: [
+      { k: "Rétention" },
+      { k: "Taux de chute" },
+      { k: "Durée de vie des contrats" },
+      { k: "Multi-équipement" },
+      { k: "Rentabilité" },
+    ],
   },
 ];
 
@@ -109,7 +115,7 @@ export const experiences: Experience[] = [
   {
     title: "Responsable de la Performance Commerciale IARD",
     company: "APRIL",
-    place: "Réseau de courtage IARD · Rennes",
+    place: "Direction commerciale · Réseau de courtage IARD · Rennes",
     period: "Nov. 2024 — aujourd'hui",
     business: [
       "Pilotage de la performance du réseau de courtiers : 5 gammes IARD (Auto, Habitation, RC Décennale, 2-roues, Immobilier) sur 2 filiales",
