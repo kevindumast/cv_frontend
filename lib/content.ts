@@ -207,8 +207,8 @@ export const strengths = [
   "Autodidacte",
   "Prise de parole en public",
   "Vulgarisation auprès des directions",
-  "Autonomie",
-  "Esprit produit",
+  "Pédagogie & accompagnement des équipes",
+  "Orientation résultats",
 ];
 
 export const languages = ["Français natif", "Anglais professionnel", "Espagnol notions"];
