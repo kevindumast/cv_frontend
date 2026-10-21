@@ -65,13 +65,24 @@ export function Kpis() {
             <path d={FUNNEL} fill="url(#kpi-funnel)" />
             <path d={AXIS} stroke="url(#kpi-axis)" strokeWidth="2" strokeDasharray="2 6" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
           </g>
-          {!reduce &&
-            [0, 1.2, 2.4].map((b) => (
-              <circle key={b} r="4" fill="#151b23" opacity="0.7">
-                <animateMotion dur="3.6s" begin={`${2 + b}s`} repeatCount="indefinite" path={AXIS} />
-              </circle>
-            ))}
         </svg>
+        {/* Billes en HTML : le SVG est étiré en largeur, des cercles SVG deviendraient ovales */}
+        {!reduce && (
+          <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2">
+            {[0, 1.2, 2.4].map((b) => (
+              <motion.span
+                key={b}
+                className="absolute top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink/70"
+                initial={{ left: "0%", opacity: 0 }}
+                animate={{ left: ["0%", "100%"], opacity: [0, 1, 1, 0] }}
+                transition={{
+                  left: { duration: 3.6, delay: 2 + b, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 3.6, delay: 2 + b, repeat: Infinity, times: [0, 0.05, 0.95, 1] },
+                }}
+              />
+            ))}
+          </div>
+        )}
         {/* Points d'étape posés sur l'axe, centrés sur chaque colonne */}
         <div className="pointer-events-none absolute inset-x-0 top-1/2 grid -translate-y-1/2 grid-cols-5">
           {kpiStages.map((s, i) => (
