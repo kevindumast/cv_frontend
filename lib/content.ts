@@ -53,7 +53,13 @@ export const kpiStages: { stage: string; caption: string; kpis: { k: string; hin
   {
     stage: "Portefeuille",
     caption: "Garder et rentabiliser",
-    kpis: [{ k: "Rétention" }, { k: "Taux de chute" }, { k: "Rentabilité" }],
+    kpis: [
+      { k: "Rétention" },
+      { k: "Taux de chute" },
+      { k: "Durée de vie des contrats" },
+      { k: "Multi-équipement" },
+      { k: "Rentabilité" },
+    ],
   },
 ];
 
