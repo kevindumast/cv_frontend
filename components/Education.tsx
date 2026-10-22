@@ -42,7 +42,7 @@ export function Education() {
               >
                 <span
                   className={`absolute top-[5px] -left-7 h-[11px] w-[11px] rounded-full border-2 border-business ${
-                    i === 0 ? "bg-business" : "bg-white"
+                    i === 0 ? "bg-business" : "bg-canvas"
                   }`}
                 />
                 <p className="text-sm font-bold text-business tabular-nums">{e.period}</p>

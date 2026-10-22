@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Mode sombre piloté par data-theme sur <html> (préférence système par défaut) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Palette et typographie reprises du CV */
 @theme {
   --color-ink: #151b23;
@@ -12,6 +15,8 @@
   --color-business-soft: #efebfa;
   --color-tech: #1e8c6e;
   --color-tech-soft: #e8f5f0;
+  --color-canvas: #ffffff;
+  --color-night: #151b23;
 
   --font-sans: Calibri, var(--font-carlito), "Segoe UI", Arial, sans-serif;
 
@@ -32,8 +37,26 @@
   }
 }
 
+/* Mêmes rôles de couleur en sombre, éclaircis pour rester lisibles */
+[data-theme="dark"] {
+  --color-ink: #e8ecf1;
+  --color-slate: #b6bfca;
+  --color-muted: #8f99a6;
+  --color-faint: #6b7583;
+  --color-surface: #161b22;
+  --color-line: #252c35;
+  --color-business: #9b85e6;
+  --color-business-soft: #231d38;
+  --color-tech: #3fbf98;
+  --color-tech-soft: #13291f;
+  --color-canvas: #0f1318;
+  --color-night: #0a0d11;
+  --chip-mix: 16%;
+  color-scheme: dark;
+}
+
 html {
-  background: #ffffff;
+  background: var(--color-canvas);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -43,7 +66,7 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
 body {
-  background: #ffffff;
+  background: var(--color-canvas);
   font-family: var(--font-sans);
   overflow-x: hidden;
 }

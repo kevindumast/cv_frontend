@@ -32,16 +32,16 @@ export function BridgeCurve() {
     <svg viewBox="0 0 640 440" className="h-full w-full overflow-visible" aria-hidden>
       <defs>
         <linearGradient id="bridge" x1="0" x2="1">
-          <stop offset="0" stopColor="#6a4fc2" />
-          <stop offset="1" stopColor="#1e8c6e" />
+          <stop offset="0" style={{ stopColor: "var(--color-business)" }} />
+          <stop offset="1" style={{ stopColor: "var(--color-tech)" }} />
         </linearGradient>
         <radialGradient id="glow">
-          <stop offset="0" stopColor="#1e8c6e" stopOpacity="0.35" />
-          <stop offset="1" stopColor="#1e8c6e" stopOpacity="0" />
+          <stop offset="0" style={{ stopColor: "var(--color-tech)" }} stopOpacity="0.35" />
+          <stop offset="1" style={{ stopColor: "var(--color-tech)" }} stopOpacity="0" />
         </radialGradient>
         <radialGradient id="glowV">
-          <stop offset="0" stopColor="#6a4fc2" stopOpacity="0.22" />
-          <stop offset="1" stopColor="#6a4fc2" stopOpacity="0" />
+          <stop offset="0" style={{ stopColor: "var(--color-business)" }} stopOpacity="0.22" />
+          <stop offset="1" style={{ stopColor: "var(--color-business)" }} stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -51,7 +51,7 @@ export function BridgeCurve() {
           cx={p.x}
           cy={p.y}
           r={p.o > 0.85 ? 2.2 : 1.4}
-          fill={p.x < 320 ? (p.y < 220 ? "#6a4fc2" : "#1e8c6e") : "#8a96a3"}
+          style={{ fill: p.x < 320 ? (p.y < 220 ? "var(--color-business)" : "var(--color-tech)") : "var(--color-faint)" }}
           initial={{ opacity: 0 }}
           animate={reduce ? { opacity: 0.4 } : { opacity: [0, 0.6, 0], y: [0, -14, 0] }}
           transition={{ duration: p.d, repeat: Infinity, delay: p.o * 4, ease: "easeInOut" }}
@@ -69,19 +69,19 @@ export function BridgeCurve() {
         style={{ transformOrigin: "640px 90px" }}
       />
 
-      <motion.path d={BUSINESS} fill="none" stroke="#6a4fc2" strokeWidth="2.5" strokeLinecap="round" {...draw(0.2)} />
-      <motion.path d={TECH} fill="none" stroke="#1e8c6e" strokeWidth="2.5" strokeLinecap="round" {...draw(0.35)} />
+      <motion.path d={BUSINESS} fill="none" style={{ stroke: "var(--color-business)" }} strokeWidth="2.5" strokeLinecap="round" {...draw(0.2)} />
+      <motion.path d={TECH} fill="none" style={{ stroke: "var(--color-tech)" }} strokeWidth="2.5" strokeLinecap="round" {...draw(0.35)} />
       <motion.path d={BRIDGE} fill="none" stroke="url(#bridge)" strokeWidth="3.5" strokeLinecap="round" {...draw(1.6)} />
 
       {!reduce && (
         <>
-          <circle r="4" fill="#6a4fc2">
+          <circle r="4" style={{ fill: "var(--color-business)" }}>
             <animateMotion dur="3.2s" repeatCount="indefinite" path={BUSINESS} begin="2s" />
           </circle>
-          <circle r="4" fill="#1e8c6e">
+          <circle r="4" style={{ fill: "var(--color-tech)" }}>
             <animateMotion dur="3.2s" repeatCount="indefinite" path={TECH} begin="2.6s" />
           </circle>
-          <circle r="4.5" fill="#151b23">
+          <circle r="4.5" style={{ fill: "var(--color-ink)" }}>
             <animateMotion dur="3.6s" repeatCount="indefinite" path={BRIDGE} begin="3.4s" />
           </circle>
         </>
@@ -93,10 +93,10 @@ export function BridgeCurve() {
         transition={{ delay: 1.5, duration: 0.6 }}
         style={{ transformOrigin: "330px 236px" }}
       >
-        <circle cx="330" cy="236" r="9" fill="#fff" stroke="#151b23" strokeWidth="2.5" />
-        <circle cx="330" cy="236" r="3.5" fill="#151b23" />
+        <circle cx="330" cy="236" r="9" style={{ fill: "var(--color-canvas)", stroke: "var(--color-ink)" }} strokeWidth="2.5" />
+        <circle cx="330" cy="236" r="3.5" style={{ fill: "var(--color-ink)" }} />
       </motion.g>
-      <motion.circle cx="640" cy="90" r="6" fill="#1e8c6e" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.2, duration: 0.6 }} />
+      <motion.circle cx="640" cy="90" r="6" style={{ fill: "var(--color-tech)" }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.2, duration: 0.6 }} />
 
       <motion.g
         initial={{ opacity: 0 }}
@@ -105,9 +105,9 @@ export function BridgeCurve() {
         fontWeight="700"
         className="text-[22px] tracking-[0.18em] sm:text-[13px] sm:tracking-[0.2em]"
       >
-        <text x="6" y="50" fill="#6a4fc2">BUSINESS</text>
-        <text x="6" y="416" fill="#1e8c6e">TECH</text>
-        <text x="330" y="284" textAnchor="middle" fill="#151b23">LE PONT</text>
+        <text x="6" y="50" style={{ fill: "var(--color-business)" }}>BUSINESS</text>
+        <text x="6" y="416" style={{ fill: "var(--color-tech)" }}>TECH</text>
+        <text x="330" y="284" textAnchor="middle" style={{ fill: "var(--color-ink)" }}>LE PONT</text>
       </motion.g>
       <motion.text
         initial={{ opacity: 0 }}
@@ -116,7 +116,7 @@ export function BridgeCurve() {
         x="640"
         y="52"
         textAnchor="end"
-        fill="#1e8c6e"
+        style={{ fill: "var(--color-tech)" }}
         fontWeight="700"
         className="text-[22px] tracking-[0.18em] sm:text-[13px] sm:tracking-[0.2em]"
       >

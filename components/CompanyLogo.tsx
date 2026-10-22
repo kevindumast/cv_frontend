@@ -16,7 +16,7 @@ export function CompanyLogo({ company, height = 32 }: { company: string; height?
         width={width}
         height={h}
         unoptimized
-        className="min-w-0 object-contain object-left"
+        className="min-w-0 object-contain object-left dark:rounded-md dark:bg-white dark:p-1"
         style={{ width, height: h, maxWidth: "100%" }}
       />
     );
@@ -25,7 +25,7 @@ export function CompanyLogo({ company, height = 32 }: { company: string; height?
   return (
     <span
       aria-hidden
-      className="text-bridge flex shrink-0 items-center justify-center rounded-xl border border-line bg-white text-base font-bold"
+      className="text-bridge flex shrink-0 items-center justify-center rounded-xl border border-line bg-canvas text-base font-bold"
       style={{ width: height, height }}
     >
       {c?.initials ?? company.slice(0, 1)}

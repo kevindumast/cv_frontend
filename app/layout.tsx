@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Carlito } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { themeScript } from "@/lib/theme";
 
 // Carlito : clone métrique libre de Calibri, la police du CV.
 const carlito = Carlito({
@@ -37,12 +38,19 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1318" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={carlito.variable}>
+    // data-theme est posé par le script avant l'hydratation
+    <html lang="fr" className={carlito.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       {/* Des extensions (ColorZilla, Grammarly…) ajoutent des attributs au body avant l'hydratation */}
       <body suppressHydrationWarning>
         <SmoothScroll />

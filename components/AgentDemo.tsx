@@ -24,7 +24,7 @@ export function AgentDemo() {
   const head = heads[tab];
 
   return (
-    <div ref={ref} className="overflow-hidden rounded-3xl border border-line bg-white shadow-[0_30px_80px_-40px_rgba(21,27,35,0.35)]">
+    <div ref={ref} className="overflow-hidden rounded-3xl border border-line bg-canvas shadow-[0_30px_80px_-40px_rgba(21,27,35,0.35)]">
       <div className="flex items-center justify-between gap-3 border-b border-line px-6 py-4">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
@@ -64,7 +64,7 @@ export function AgentDemo() {
               {tab === t.id && (
                 <motion.span
                   layoutId="demo-pill"
-                  className="absolute inset-0 -z-10 rounded-full bg-white shadow-[0_1px_4px_rgba(21,27,35,0.12)]"
+                  className="absolute inset-0 -z-10 rounded-full bg-canvas shadow-[0_1px_4px_rgba(21,27,35,0.12)]"
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
@@ -223,11 +223,11 @@ function ProductionPanel({ active, reduce }: { active: boolean; reduce: boolean 
             </span>
           </p>
           <svg viewBox="0 0 220 90" className="w-full overflow-visible">
-            <path d={toPath(objective, 220, 80)} fill="none" stroke="#8a96a3" strokeWidth="1.5" strokeDasharray="3 3" />
+            <path d={toPath(objective, 220, 80)} fill="none" style={{ stroke: "var(--color-faint)" }} strokeWidth="1.5" strokeDasharray="3 3" />
             <motion.path
               d={toPath(actual, 220, 80)}
               fill="none"
-              stroke="#1e8c6e"
+              style={{ stroke: "var(--color-tech)" }}
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -237,7 +237,7 @@ function ProductionPanel({ active, reduce }: { active: boolean; reduce: boolean 
               transition={{ duration: 2, delay: 0.4 }}
             />
             {months.map((m, i) => (
-              <text key={i} x={(i * 220) / 11} y="90" textAnchor="middle" fontSize="7" fill="#8a96a3">
+              <text key={i} x={(i * 220) / 11} y="90" textAnchor="middle" fontSize="7" style={{ fill: "var(--color-faint)" }}>
                 {m}
               </text>
             ))}
@@ -288,11 +288,11 @@ function TerminalPanel({ active, reduce }: { active: boolean; reduce: boolean })
 
   return (
     <div className="px-6 py-6">
-      <div className="overflow-hidden rounded-2xl bg-ink font-mono text-[12px] leading-relaxed text-white/80 sm:text-[13px]">
+      <div className="overflow-hidden rounded-2xl bg-night font-mono ring-1 ring-white/5 text-[12px] leading-relaxed text-white/80 sm:text-[13px]">
         <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-2.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+          <span className="h-2.5 w-2.5 rounded-full bg-canvas/20" />
+          <span className="h-2.5 w-2.5 rounded-full bg-canvas/20" />
+          <span className="h-2.5 w-2.5 rounded-full bg-canvas/20" />
           <span className="ml-2 text-[11px] text-white/40">claude · pilotage-data</span>
         </div>
 
@@ -300,7 +300,7 @@ function TerminalPanel({ active, reduce }: { active: boolean; reduce: boolean })
           <p className="pl-[2ch] -indent-[2ch]">
             <span className="text-[#b8a6f0]">&gt; </span>
             <span className="text-white">{prompt}</span>
-            {!reduce && active && !done && <Caret className="bg-white/70" />}
+            {!reduce && active && !done && <Caret className="bg-canvas/70" />}
           </p>
 
           {SCRIPT.slice(0, shown).map((l, i) => (
@@ -315,7 +315,7 @@ function TerminalPanel({ active, reduce }: { active: boolean; reduce: boolean })
           ))}
 
           {!reduce && active && done && shown < SCRIPT.length && (
-            <span className="inline-block h-[1em] w-[0.55em] translate-y-[2px] animate-blink bg-white/50" />
+            <span className="inline-block h-[1em] w-[0.55em] translate-y-[2px] animate-blink bg-canvas/50" />
           )}
         </div>
       </div>

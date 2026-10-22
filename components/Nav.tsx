@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useScroll, useSpring, useMotionValueEvent } from "motion/react";
 import { useEffect, useState } from "react";
 import { profile } from "@/lib/content";
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { href: "#kpis", label: "KPIs" },
@@ -38,7 +39,7 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled || open ? "bg-white/90 shadow-[0_1px_0_var(--color-line)] backdrop-blur-xl" : "bg-transparent"
+        scrolled || open ? "bg-canvas/90 shadow-[0_1px_0_var(--color-line)] backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-8">
@@ -56,11 +57,12 @@ export function Nav() {
           ))}
         </ul>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <a
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-ink px-4 py-2 text-sm font-bold text-white transition hover:bg-business"
+            className="rounded-full bg-ink px-4 py-2 text-sm font-bold text-canvas transition hover:bg-business"
           >
             LinkedIn
           </a>
@@ -70,7 +72,7 @@ export function Nav() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white md:hidden"
+            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-line bg-canvas md:hidden"
           >
             <motion.span
               className="absolute h-[2px] w-4 rounded bg-ink"
@@ -94,7 +96,7 @@ export function Nav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease }}
-            className="overflow-hidden border-t border-line bg-white md:hidden"
+            className="overflow-hidden border-t border-line bg-canvas md:hidden"
           >
             <ul className="px-4 py-4">
               {links.map((l, i) => (

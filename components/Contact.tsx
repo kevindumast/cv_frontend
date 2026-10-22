@@ -6,7 +6,7 @@ import { Reveal, WordReveal } from "./Reveal";
 
 export function Contact() {
   return (
-    <footer className="relative overflow-hidden bg-ink text-white">
+    <footer className="relative overflow-hidden bg-night text-white">
       <motion.div
         aria-hidden
         className="absolute -top-40 -left-40 h-[28rem] w-[28rem] rounded-full bg-business opacity-30 blur-[120px]"
@@ -32,7 +32,7 @@ export function Contact() {
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-lg font-bold text-ink transition hover:bg-business-soft"
+            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-lg font-bold text-night transition hover:bg-white/85"
           >
             Échangeons sur LinkedIn
             <span className="transition-transform group-hover:translate-x-1">→</span>

@@ -27,7 +27,7 @@ export function Profile() {
               className="relative aspect-square w-full rounded-[1.6rem] object-cover"
               priority={false}
             />
-            <div className="absolute -bottom-5 right-2 rounded-2xl bg-white sm:-right-4 px-4 py-3 shadow-[0_20px_50px_-20px_rgba(21,27,35,0.4)]">
+            <div className="absolute -bottom-5 right-2 rounded-2xl bg-canvas sm:-right-4 px-4 py-3 shadow-[0_20px_50px_-20px_rgba(21,27,35,0.4)]">
               <p className="font-bold leading-tight">{profile.firstName} {profile.lastName}</p>
               <p className="text-sm text-muted">{profile.location}</p>
             </div>
