@@ -18,7 +18,7 @@ export function Skills() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <div className="h-full rounded-3xl bg-white p-6 sm:p-10">
+            <div className="h-full rounded-3xl bg-canvas p-6 sm:p-10">
               <p className="eyebrow mb-6 text-business">Expertise métier</p>
               <ul className="divide-y divide-line">
                 {expertise.map((e, i) => {
@@ -42,7 +42,7 @@ export function Skills() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="h-full rounded-3xl bg-white p-6 sm:p-10">
+            <div className="h-full rounded-3xl bg-canvas p-6 sm:p-10">
               <p className="eyebrow mb-6 text-tech">Stack technique</p>
               <div className="space-y-6">
                 {stack.map((g) => (
@@ -56,7 +56,7 @@ export function Skills() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.035, type: "spring", stiffness: 300, damping: 22 }}
-                          className="cursor-default rounded-full bg-tech-soft px-3 py-1.5 text-sm font-bold text-tech transition-colors hover:bg-tech hover:text-white"
+                          className="cursor-default rounded-full bg-tech-soft px-3 py-1.5 text-sm font-bold text-tech transition-colors hover:bg-tech hover:text-canvas"
                         >
                           {t}
                         </motion.li>

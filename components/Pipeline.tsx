@@ -40,7 +40,7 @@ export function Pipeline() {
                 <Reveal key={p.step} delay={i * 0.04} y={16}>
                   <div className="relative">
                     <span
-                      className={`absolute top-1 -left-10 h-[15px] w-[15px] rounded-full border-[3px] bg-white ${
+                      className={`absolute top-1 -left-10 h-[15px] w-[15px] rounded-full border-[3px] bg-canvas ${
                         p.tone === "tech" ? "border-tech" : "border-business"
                       }`}
                     />

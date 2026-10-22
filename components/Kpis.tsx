@@ -4,13 +4,11 @@ import { motion, useReducedMotion } from "motion/react";
 import { kpiStages } from "@/lib/content";
 import { Reveal, WordReveal } from "./Reveal";
 
-// Couleur d'étape : du violet business au vert tech, comme la courbe de l'accueil
-const FROM = [0x6a, 0x4f, 0xc2];
-const TO = [0x1e, 0x8c, 0x6e];
+// Couleur d'étape : du violet business au vert tech, comme la courbe de l'accueil.
+// Calculée depuis les jetons du thème, elle suit donc le mode sombre.
 function stageColor(i: number, n: number) {
-  const t = n > 1 ? i / (n - 1) : 0;
-  const c = FROM.map((f, k) => Math.round(f + (TO[k] - f) * t));
-  return `rgb(${c.join(",")})`;
+  const t = n > 1 ? Math.round((i / (n - 1)) * 100) : 0;
+  return `color-mix(in oklab, var(--color-tech) ${t}%, var(--color-business))`;
 }
 
 // Entonnoir : large à gauche (potentiel), resserré à droite (portefeuille)
@@ -42,12 +40,12 @@ export function Kpis() {
         <svg viewBox="0 0 1000 140" preserveAspectRatio="none" className="h-32 w-full overflow-visible">
           <defs>
             <linearGradient id="kpi-funnel" x1="0" x2="1">
-              <stop offset="0" stopColor="#6a4fc2" stopOpacity="0.16" />
-              <stop offset="1" stopColor="#1e8c6e" stopOpacity="0.2" />
+              <stop offset="0" style={{ stopColor: "var(--color-business)" }} stopOpacity="0.16" />
+              <stop offset="1" style={{ stopColor: "var(--color-tech)" }} stopOpacity="0.2" />
             </linearGradient>
             <linearGradient id="kpi-axis" x1="0" x2="1">
-              <stop offset="0" stopColor="#6a4fc2" />
-              <stop offset="1" stopColor="#1e8c6e" />
+              <stop offset="0" style={{ stopColor: "var(--color-business)" }} />
+              <stop offset="1" style={{ stopColor: "var(--color-tech)" }} />
             </linearGradient>
             <clipPath id="kpi-reveal">
               <motion.rect
@@ -92,7 +90,7 @@ export function Kpis() {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 + i * 0.3, type: "spring", stiffness: 300, damping: 18 }}
-              className="mx-auto flex h-9 w-9 items-center justify-center rounded-full border-[3px] bg-white text-xs font-bold tabular-nums"
+              className="mx-auto flex h-9 w-9 items-center justify-center rounded-full border-[3px] bg-canvas text-xs font-bold tabular-nums"
               style={{ borderColor: stageColor(i, n), color: stageColor(i, n) }}
             >
               {String(i + 1).padStart(2, "0")}
@@ -116,7 +114,7 @@ export function Kpis() {
               className="relative"
             >
               <span
-                className="absolute top-0.5 -left-10 flex h-7 w-7 items-center justify-center rounded-full border-[3px] bg-white text-[10px] font-bold tabular-nums lg:hidden"
+                className="absolute top-0.5 -left-10 flex h-7 w-7 items-center justify-center rounded-full border-[3px] bg-canvas text-[10px] font-bold tabular-nums lg:hidden"
                 style={{ borderColor: color, color }}
               >
                 {String(i + 1).padStart(2, "0")}
@@ -130,7 +128,7 @@ export function Kpis() {
                   <li
                     key={k.k}
                     className="rounded-xl px-3 py-2 text-sm leading-tight font-bold lg:w-full"
-                    style={{ color, backgroundColor: color.replace("rgb", "rgba").replace(")", ",0.09)") }}
+                    style={{ color, backgroundColor: `color-mix(in srgb, ${color} var(--chip-mix, 9%), transparent)` }}
                   >
                     {k.k}
                     {k.hint && <span className="mt-0.5 block text-xs font-normal text-slate">{k.hint}</span>}

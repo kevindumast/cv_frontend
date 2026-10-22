@@ -24,7 +24,7 @@ export function Experience() {
       />
 
       <Reveal delay={0.1}>
-        <article className="mt-14 rounded-3xl border border-line bg-white p-6 sm:p-10">
+        <article className="mt-14 rounded-3xl border border-line bg-canvas p-6 sm:p-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <CompanyLogo company={current.company} height={36} />
             <span className="rounded-full bg-tech-soft px-3 py-1 text-sm font-bold text-tech">{current.period}</span>
@@ -114,7 +114,7 @@ export function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 + i * 0.07, duration: 0.5 }}
-                className="flex h-full flex-col gap-4 rounded-2xl bg-white p-4"
+                className="flex h-full flex-col gap-4 rounded-2xl bg-canvas p-4"
               >
                 <div className="flex h-10 items-start justify-between gap-2">
                   <span className="flex h-10 min-w-0 flex-1 items-center">
@@ -145,7 +145,7 @@ export function Experience() {
 function PastRole({ e }: { e: Exp }) {
   const more = useExpandable(e.bullets!.length, 2);
   return (
-    <article className="group h-full rounded-3xl border border-line bg-white p-6 transition-colors duration-500 hover:border-business/30 sm:p-8">
+    <article className="group h-full rounded-3xl border border-line bg-canvas p-6 transition-colors duration-500 hover:border-business/30 sm:p-8">
       <div className="flex h-11 items-center justify-between gap-3">
         <CompanyLogo company={e.company} height={44} />
         <p className="text-right text-sm font-bold text-muted">{e.period}</p>

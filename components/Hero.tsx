@@ -59,14 +59,14 @@ export function Hero() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-bold text-white transition hover:bg-business"
+              className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-bold text-canvas transition hover:bg-business"
             >
               Me contacter sur LinkedIn
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
             <a
               href="#parcours"
-              className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-6 py-3.5 font-bold text-ink transition hover:border-tech hover:text-tech"
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-canvas px-6 py-3.5 font-bold text-ink transition hover:border-tech hover:text-tech"
             >
               Voir le parcours
             </a>
@@ -92,7 +92,7 @@ export function Hero() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2, duration: 0.8 }}
-            className="absolute right-0 bottom-0 z-10 hidden rounded-xl border border-line bg-white/80 px-4 py-3 text-xs backdrop-blur sm:block"
+            className="absolute right-0 bottom-0 z-10 hidden rounded-xl border border-line bg-canvas/80 px-4 py-3 text-xs backdrop-blur sm:block"
           >
             <p className="eyebrow mb-1.5 flex items-center gap-2 !text-[0.68rem] text-tech">
               <span className="relative flex h-2 w-2">
@@ -145,7 +145,7 @@ function FlowStrip() {
             className="relative"
           >
             <span
-              className={`mb-4 block h-[15px] w-[15px] rounded-full border-[3px] bg-white ${
+              className={`mb-4 block h-[15px] w-[15px] rounded-full border-[3px] bg-canvas ${
                 i < 2 ? "border-tech" : "border-business"
               }`}
             />
